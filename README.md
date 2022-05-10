@@ -24,6 +24,7 @@ The API will validate existence of products/extras, stock availability and if cu
 
 
 # Notes
+Connection string available in appsettings.json .
 There is a DB generation script in DBScript.sql file at root folder.
 There is a Data Generator/Initializer for populating the database running on startup (if data is not already in DB) (code file Data/DbDataInitializer.cs).
 
