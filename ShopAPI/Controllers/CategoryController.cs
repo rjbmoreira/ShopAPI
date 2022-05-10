@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ShopAPI.Data;
 using ShopAPI.Models;
 using System;
@@ -14,13 +15,15 @@ namespace ShopAPI.Controllers
     {
 
         private readonly DataContext _context;
+        private readonly ILogger<CategoryController> _logger;
 
-        public CategoryController(DataContext context)
+        public CategoryController(ILogger<CategoryController> logger, DataContext context)
         {
+            _logger = logger;
             _context = context;
         }
 
-        
+
 
         // Get all categories
         // GET: shopapi/category

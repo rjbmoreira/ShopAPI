@@ -28,6 +28,14 @@ namespace ShopAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy",
+                    b => b.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+            }
+            );
 
             services.AddControllers();
 
@@ -35,6 +43,8 @@ namespace ShopAPI
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<IOrderManagementRepository, OrderManagement>();
 
             services.AddSwaggerGen(c =>
             {

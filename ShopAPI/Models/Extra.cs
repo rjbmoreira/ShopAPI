@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace ShopAPI.Models
 {
-    public class Extra
+    //ToDo
+    //refactor to inherit Product and just add a bool flag IsExtra as true.
+    //also refactor ProductController to include any ExtraController logic not being already taken care of.
+    public class Extra 
     {
         public int Id { get; set; }
 

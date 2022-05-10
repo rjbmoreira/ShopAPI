@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ShopAPI.Data;
 using ShopAPI.Models;
 using System;
@@ -13,9 +14,11 @@ namespace ShopAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(DataContext context)
+        public ProductController(ILogger<ProductController> logger, DataContext context)
         {
+            _logger = logger;
             _context = context;
         }
 
